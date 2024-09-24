@@ -1,0 +1,73 @@
+
+
+# Example usage
+sample_text = "I wish the movie was better. It was a bit boring.  The acting was okay, but the script was awful."
+sentiment = predict_sentiment(model, sample_text)
+print(f"Sentiment: {'Positive' if sentiment > 0.5 else 'Negative'} (Score: {sentiment:.2f})")
+
+
+sample_text = "I'm absolutely thrilled with my new smartphone! It exceeds all my expectations and then some. The battery life is incredible - I can go two full days of heavy use without needing to recharge. The camera is a game-changer; it captures stunningly detailed photos and videos, even in low light conditions. The user interface is sleek and intuitive, making navigation a breeze. I'm particularly impressed with the processing speed - apps open instantly, and multitasking is smooth as silk. The build quality is top-notch, with a premium feel that justifies every penny spent. The new AI features are genuinely useful and not just gimmicks. If you're in the market for a new phone, look no further. This smartphone is the perfect blend of style, functionality, and innovation. Highly recommended!"
+sentiment = predict_sentiment(model, sample_text)
+print(f"Sentiment: {'Positive' if sentiment > 0.5 else 'Negative'} (Score: {sentiment:.2f})")
+
+# Example usage
+sample_text = "This smartphone is an absolute disaster. I've never been more disappointed with a tech purchase in my life. The battery life is abysmal - it barely lasts half a day with minimal use. The camera, which was supposed to be a highlight, produces grainy and washed-out photos that look like they were taken with a decade-old flip phone. The user interface is clunky and unintuitive, making even simple tasks frustrating. To top it off, the phone overheats regularly, making it uncomfortable to hold during longer calls. Save your money and avoid this poorly designed piece of junk. I'm returning it as soon as possible and warning everyone I know not to make the same mistake I did.."
+sentiment = predict_sentiment(model_with_emb, sample_text)
+print(f"Sentiment: {'Positive' if sentiment > 0.5 else 'Negative'} (Score: {sentiment:.2f})")
+
+
+sample_text = "The movie was great! The acting was amazing and the script was fantastic."
+sentiment = predict_sentiment(model_with_emb, sample_text)
+print(f"Sentiment: {'Positive' if sentiment > 0.5 else 'Negative'} (Score: {sentiment:.2f})")
+
+
+
+
+
+index = 30
+print(test_df['review'][index])
+print('='*70)
+print(f'Actual sentiment is  : {test_df["sentiment"][index]}')
+print('='*70)
+pro = predict_text(model, test_df['review'][index])
+print("pro:", pro)
+status = "positive" if pro > 0.5 else "negative"
+pro = (1 - pro) if status == "negative" else pro
+print(f'Predicted sentiment is {status} with a probability of {pro}')
+
+index = 32
+print(test_df['review'][index])
+print('='*70)
+print(f'Actual sentiment is  : {test_df["sentiment"][index]}')
+print('='*70)
+pro = predict_text(model, test_df['review'][index])
+print("pro:", pro)
+status = "positive" if pro > 0.5 else "negative"
+pro = (1 - pro) if status == "negative" else pro
+print(f'Predicted sentiment is {status} with a probability of {pro}')
+
+
+print(25 * '==')
+
+
+index = 30
+print(test_df['review'][index])
+print('='*70)
+print(f'Actual sentiment is  : {test_df["sentiment"][index]}')
+print('='*70)
+pro = predict_text(model_with_emb, test_df['review'][index])
+print("pro:", pro)
+status = "positive" if pro > 0.5 else "negative"
+pro = (1 - pro) if status == "negative" else pro
+print(f'Predicted sentiment is {status} with a probability of {pro}')
+
+index = 32
+print(test_df['review'][index])
+print('='*70)
+print(f'Actual sentiment is  : {test_df["sentiment"][index]}')
+print('='*70)
+pro = predict_text(model_with_emb, test_df['review'][index])
+print("pro:", pro)
+status = "positive" if pro > 0.5 else "negative"
+pro = (1 - pro) if status == "negative" else pro
+print(f'Predicted sentiment is {status} with a probability of {pro}')
